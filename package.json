@@ -1,0 +1,21 @@
+{
+  "name": "seo-homologation-chrome-addon",
+  "version": "0.5",
+  "description": "Plugin para controle de links da semana",
+  "main": "./app/js/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teles/links-da-semana.git"
+  },
+  "author": "Jota Teles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teles/links-da-semana/issues"
+  },
+  "homepage": "https://github.com/teles/links-da-semana#readme"
+}
