@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Test Extension",
+  "name": "Galileo - SEO Assistant",
   "version": "0.0",
   "background": {
     "persistent": false,
@@ -11,7 +11,7 @@
     "js": ["content-script.js"]
   }],
   "browser_action": {
-    "default_title": "Test Extension"
+    "default_title": "Galileo - SEO Assistant"
   },
 
   "permissions": ["activeTab"]

@@ -1,4 +1,4 @@
-var dom;
+var dom = document.createElement("html");
 
 var xpath = function(xpathToExecute){
     var result = [];
@@ -13,10 +13,10 @@ const SEOExtractor = [
     {
         name: "prerenderDate",
         get: () => {
-        return xpath("//body[@data-prerender-date]/@data-prerender-date")[0].nodeValue
-    }
-},{
-    name: "h1List",
+            return xpath("//body[@data-prerender-date]/@data-prerender-date")[0].nodeValue
+        }
+    },{
+        name: "h1List",
         get: () => {
         return xpath("//body//h1")[0].innerHTML;
     }
@@ -77,8 +77,14 @@ var urlRegex = /^https?:\/\/(?:[^./?#]+\.)?vivadecora\.com\.br/;
 
 // A function to use as callback
 function doStuffWithDom(domContent) {
-    dom = domContent;
-    alert(xpath);
+    domContent = new DOMParser().parseFromString(domContent, "text/html");
+    dom.appendChild(domContent.head);
+    dom.appendChild(domContent.body);
+
+    SEOExtractor.forEach((rule) => {
+       alert(`${rule.name} : ${rule.get()}`);
+    });
+
 }
 
 chrome.browserAction.onClicked.addListener(function (tab) {
