@@ -6,7 +6,7 @@ Galileo é uma extensão para o Google Chrome. O Galileo facilita a tarefa de ho
 
 * `<h1>` das páginas
 * `<title>` das páginas
-* `<h2>`, `<h3>`, `<h4>
+* `<h2>`, `<h3>`, `<h4>`
 * rel next e rel prev
 * url canônica
 * url AMP associada
