@@ -1,15 +1,18 @@
 {
-   "browser_action": {
-      "default_popup": "index.html"
-   },
-   "description": "Verifique os principais critérios de SEO do seu site.",
-   "manifest_version": 2,
-   "name": "SEO Homologator",
-   "icons": {
-        "16": "img/icon16.png",
-        "48": "img/icon48.png",
-        "128": "img/icon128.png"
-   },
-   "permissions": [ "notifications", "tabs", "http://*/*", "https://*/*" ],
-   "version": "0.5"
+  "manifest_version": 2,
+  "name": "Test Extension",
+  "version": "0.0",
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["*://*.vivadecora.com.br/*"],
+    "js": ["content-script.js"]
+  }],
+  "browser_action": {
+    "default_title": "Test Extension"
+  },
+
+  "permissions": ["activeTab"]
 }
