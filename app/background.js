@@ -80,10 +80,13 @@ function doStuffWithDom(domContent) {
     domContent = new DOMParser().parseFromString(domContent, "text/html");
     dom.appendChild(domContent.head);
     dom.appendChild(domContent.body);
+    var results = {};
 
-    SEOExtractor.forEach((rule) => {
-       alert(`${rule.name} : ${rule.get()}`);
+    SEOExtractor.forEach(rule => {
+       results[rule.name] = rule.get();
     });
+
+    alert(JSON.stringify(results));
 
 }
 
