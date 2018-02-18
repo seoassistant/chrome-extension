@@ -1,18 +1,9 @@
 {
-  "manifest_version": 2,
   "name": "Galileo - SEO Assistant",
-  "version": "0.0",
-  "background": {
-    "persistent": false,
-    "scripts": ["background.js"]
-  },
-  "content_scripts": [{
-    "matches": ["*://*.vivadecora.com.br/*"],
-    "js": ["content-script.js"]
-  }],
-  "browser_action": {
-    "default_title": "Galileo - SEO Assistant"
-  },
-
-  "permissions": ["activeTab"]
+  "description": "Get all page information you need.",
+  "version": "0.1",
+  "minimum_chrome_version": "16.0.884",
+  "permissions": ["downloads", "<all_urls>"],
+  "browser_action": {"default_popup": "popup.html"},
+  "manifest_version": 2
 }
