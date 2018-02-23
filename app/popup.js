@@ -114,6 +114,7 @@ chrome.runtime.onMessage.addListener(function(request) {
 
     if (request.action === "getSource") {
         var messageContent = document.createElement("table");
+        messageContent.setAttribute("class", "table is-striped");
         messageContent.innerHTML = `
             <thead>
                 <tr><td>Nome</td><td>Conteudo</td></tr>
