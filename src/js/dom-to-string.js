@@ -1,6 +1,6 @@
-function DOMtoString(document_root) {
-    var html = '',
-        node = document_root.firstChild;
+function DOMtoString(documentRoot) {
+    let html = "";
+    let node = documentRoot.firstChild;
     while (node) {
         switch (node.nodeType) {
             case Node.ELEMENT_NODE:
@@ -24,9 +24,4 @@ function DOMtoString(document_root) {
     }
     return html;
 }
-
-chrome.runtime.sendMessage({
-    action: "getSource",
-    source: DOMtoString(document)
-});
-
+export default DOMtoString;
