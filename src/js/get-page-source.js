@@ -1,6 +1,6 @@
 import DOMtoString from "./dom-to-string";
 
 chrome.runtime.sendMessage({
-    action: "get-page-source",
+    action: "getPageSource",
     source: DOMtoString(document)
 });
