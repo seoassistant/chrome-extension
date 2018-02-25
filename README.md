@@ -1,6 +1,15 @@
 # Galileo - SEO Assistant
 
-![Galileo by Cactus Cowboy](https://openclipart.org/image/300px/svg_to_png/293000/charles-darwin.png)
+<h1 align="center">
+  <br>
+   <img src="/src/img/icon-128.png" alt="Logo Galileo" title="Logo Galileo" />
+  <br>
+</h1>
+
+<p align="center">
+  This repository contains the <strong>Galileo - SEO Assistant</strong> source code.
+  Galileo is a Google Chrome Extension to help you verify your website's SEO information.
+</p>
 
 Galileo é uma extensão para o Google Chrome. O Galileo facilita a tarefa de homologação e testes de SEO de páginas web fornecendo testes automáticos para uma série de requisitos como:
 
