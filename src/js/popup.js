@@ -7,6 +7,8 @@ import ResultsToHTMLTable from "./popup/results-to-html-table";
 
 let page;
 let main;
+let title;
+let subtitle;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
@@ -20,9 +22,6 @@ chrome.runtime.onMessage.addListener(function(request) {
             });
         });
 
-        let title = document.querySelector("[data-selector='header__title']");
-        let subtitle = document.querySelector("[data-selector='header__subtitle']");
-
         title.innerText = request.source.title.length <= 35 ? request.source.title : `${request.source.title.substr(0,35)}...`;
         subtitle.innerText = request.source.url.length <= 60 ? request.source.url : `${request.source.url.substr(0,60)}...`;
         main.innerHTML = ResultsToHTMLTable(results);
@@ -30,13 +29,17 @@ chrome.runtime.onMessage.addListener(function(request) {
 });
 
 function onLoadWindow(){
+    title = document.querySelector("[data-selector='header__title']");
+    subtitle = document.querySelector("[data-selector='header__subtitle']");
     main = document.querySelector("[data-selector='main']");
 
     chrome.tabs.executeScript(null, {
         file: "./get-page-source.bundle.js"
     }, function(){
         if (chrome.runtime.lastError) {
-            main.innerHTML = "Ocorreu um erro ao injetar script: \n" + chrome.runtime.lastError.message;
+            title.innerText = "Ocorreu um erro ao injetar script";
+            subtitle.innerText = chrome.runtime.lastError.message;
+            main.innerHTML = "";
         }
     });
 }
