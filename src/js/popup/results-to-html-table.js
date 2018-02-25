@@ -2,7 +2,7 @@ const ResultsToHTMLTable = (results) => {
     return `
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
-                <tr>
+                <tr class="has-text-weight-semibold">
                     <td> Propriedade</td>
                     <td> Conteudo </td>
                 </tr>

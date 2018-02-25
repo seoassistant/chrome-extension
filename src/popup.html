@@ -5,11 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Galileo - SEO Assistant</title>
+  <style>
+      body {
+          min-width: 500px
+      }
+      ul > li {
+          list-style: inside;
+      }
+
+  </style>
 </head>
 <body>
-  <section class="section">
-    <h1 class="title is-3">Galileo - SEO Assistant</h1>
-    <main data-selector="addon" class="container"></main>
+  <section>
+    <header data-selector="header" class="hero is-primary">
+        <div class="hero-body">
+            <h1 class="title is-4" data-selector="header__title"></h1>
+            <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>
+        </div>
+    </header>
+    <main data-selector="main" class="container"></main>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Galileo - SEO Assistant</strong> by <a href="https://github.com">Teles</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <a href="https://github.com/teles/galileo-seo-assistant"> Get the code.</a>
+          </p>
+        </div>
+      </div>
+    </footer>
   </section>
 </body>
 </html>
