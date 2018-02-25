@@ -1,11 +1,11 @@
 const rules = {
     "title": {
         name: "Titulo da pagina",
-        get: (dom) => dom.querySelector("title").innerText
+        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("title") || [], title => title.innerText)
     },
     "canonical": {
         name: "URL canonica",
-        get: (dom) => dom.querySelector("link[rel='canonical']").href
+        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='canonical']") || [], canonical => canonical.href)
     },
     "h1": {
         name: "H1",

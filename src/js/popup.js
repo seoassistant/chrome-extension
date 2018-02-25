@@ -1,4 +1,3 @@
-// import "../css/popup.css";
 import SEOExtractor from "./popup/seo-extractor";
 import rules from "./popup/rules";
 import StringToDOM from "./popup/string-to-dom";
