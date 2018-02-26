@@ -1,5 +1,3 @@
-# Galileo - SEO Assistant
-
 <h1 align="center">
   <br>
    <img src="src/img/icon-128.png" alt="Logo Galileo" title="Logo Galileo" />
