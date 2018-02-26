@@ -12,7 +12,7 @@
   </a>  
 </p>  
 <p align="center">
-Galileo é uma extensão para o Google Chrome. O Galileo facilita a tarefa de homologação e testes de SEO de páginas web fornecendo testes automáticos para uma série de requisitos como:
+  <strong>Galileo SEO Assistant </strong>é uma extensão para o Google Chrome. O <strong>Galileo SEO Assistant </strong> pretende facilitar a tarefa de homologação e testes de SEO de páginas web fornecendo testes automáticos para uma série de requisitos como:
 </p>
 
 
@@ -28,9 +28,9 @@ Galileo é uma extensão para o Google Chrome. O Galileo facilita a tarefa de ho
 
 ## Download
 
-Para download da extensão visite a [página do Galileo SEO Extension na Chrome Webstore](https://chrome.google.com/webstore/detail/galileo-seo-assistant/jmehfdipeccfhbfbmkfpikgmfpamlalf)
+Para download da extensão visite a [página do Galileo SEO Assistant na Chrome Webstore](https://chrome.google.com/webstore/detail/galileo-seo-assistant/jmehfdipeccfhbfbmkfpikgmfpamlalf)
 
-## Contribuindo
+## Desenvolvendo
 
 1. Clone esse repositorio
 2. Instale [yarn](https://yarnpkg.com): `npm install -g yarn`.
@@ -41,3 +41,7 @@ Para download da extensão visite a [página do Galileo SEO Extension na Chrome 
     2. Cheque `Developer mode`
     3. Clique on `Carregar extensao`
     4. Selecione o diretorio `build`.
+    
+## Licença
+
+MIT - Jota Teles - 2017    
