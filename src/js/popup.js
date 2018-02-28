@@ -23,7 +23,9 @@ chrome.runtime.onMessage.addListener(function(request) {
         });
 
         title.innerText = request.source.title.length <= 35 ? request.source.title : `${request.source.title.substr(0,35)}...`;
+        title.setAttribute("title", request.source.title);
         subtitle.innerText = request.source.url.length <= 60 ? request.source.url : `${request.source.url.substr(0,60)}...`;
+        subtitle.setAttribute("title", request.source.url);
         main.innerHTML = ResultsToHTMLTable(results);
    }
 });
