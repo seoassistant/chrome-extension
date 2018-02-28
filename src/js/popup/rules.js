@@ -45,7 +45,7 @@ const rules = {
     },
     "alternate": {
         name: "Lista de alternates",
-        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='alternate']"), link => link.href)
+        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='alternate']"), link => link.getAttribute("href"))
     },
     "links": {
         name: "Lista de links",
