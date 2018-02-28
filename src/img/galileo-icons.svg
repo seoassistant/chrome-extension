@@ -46,9 +46,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.53085527"
-     inkscape:cx="830.53609"
-     inkscape:cy="133.51208"
+     inkscape:zoom="0.53508468"
+     inkscape:cx="384.82243"
+     inkscape:cy="45.192507"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -69,7 +69,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -163,16 +163,16 @@
       </g>
     </g>
     <g
-       transform="matrix(0.5,0,0,0.5,-173.66048,566.07278)"
+       transform="matrix(0.5,0,0,0.5,-259.62818,440.85895)"
        id="icon-256"
        inkscape:label="#icon-256">
       <polygon
          style="fill:#092339"
-         points="55.652,211.478 512,256 512,512 0,512 0,478.609 "
+         points="512,256 512,512 0,512 0,478.609 55.652,211.478 "
          id="polygon4486" />
       <polygon
          style="fill:#134a79"
-         points="0,0 512,0 512,256 55.652,256 0,33.391 "
+         points="512,0 512,256 55.652,256 0,33.391 0,0 "
          id="polygon4488" />
       <path
          inkscape:connector-curvature="0"
@@ -246,7 +246,7 @@
     </g>
     <g
        id="icon-128"
-       transform="matrix(0.25,0,0,0.25,209.51696,630.07278)"
+       transform="matrix(0.25,0,0,0.25,-255.82995,713.81051)"
        inkscape:label="#icon-128">
       <polygon
          id="polygon4536"
@@ -327,15 +327,15 @@
          id="g4582" />
     </g>
     <g
-       transform="matrix(0.06640625,0,0,0.06640625,389.51696,677.07278)"
+       transform="matrix(0.06640625,0,0,0.06640625,-38.452688,718.18777)"
        id="icon-34">
       <polygon
          style="fill:#092339"
-         points="0,512 0,478.609 55.652,211.478 512,256 512,512 "
+         points="0,478.609 55.652,211.478 512,256 512,512 0,512 "
          id="polygon4586" />
       <polygon
          style="fill:#134a79"
-         points="55.652,256 0,33.391 0,0 512,0 512,256 "
+         points="0,33.391 0,0 512,0 512,256 55.652,256 "
          id="polygon4588" />
       <path
          inkscape:connector-curvature="0"
@@ -406,6 +406,103 @@
          id="g4630" />
       <g
          id="g4632" />
+    </g>
+    <g
+       id="webstore-icon"
+       transform="translate(-5.6065893,-265.37856)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         y="1041.0825"
+         x="-104.59224"
+         height="128"
+         width="128"
+         id="rect3499"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1.31500006;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         transform="matrix(0.1875,0,0,0.1875,-88.592239,1057.0825)"
+         id="icon-96"
+         inkscape:label="#icon-96">
+        <polygon
+           style="fill:#092339"
+           points="0,512 0,478.609 55.652,211.478 512,256 512,512 "
+           id="polygon3440" />
+        <polygon
+           style="fill:#134a79"
+           points="55.652,256 0,33.391 0,0 512,0 512,256 "
+           id="polygon3442" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#f9b233"
+           d="m 0,33.391 0,445.217 c 122.943,0 222.609,-99.665 222.609,-222.609 C 222.609,133.055 122.943,33.391 0,33.391 Z"
+           id="path3444" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#fb8454"
+           d="m 411.826,256 c 0,18.442 14.949,33.391 33.391,33.391 L 460.058,256 445.218,222.609 c -18.443,0 -33.392,14.949 -33.392,33.391 z"
+           id="path3446" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#fd5575"
+           d="m 445.217,222.609 0,66.783 c 18.442,0 33.391,-14.949 33.391,-33.391 0,-18.442 -14.949,-33.392 -33.391,-33.392 z"
+           id="path3448" />
+        <rect
+           x="239.304"
+           y="395.13"
+           style="fill:#fde0ae"
+           width="33.390999"
+           height="33.390999"
+           id="rect3450" />
+        <rect
+           x="428.522"
+           y="83.477997"
+           style="fill:#ffffff"
+           width="33.390999"
+           height="33.390999"
+           id="rect3452" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#77aad4"
+           d="m 256,256 c 0,33.81 27.408,61.217 61.217,61.217 L 344.425,256 317.218,194.783 C 283.408,194.783 256,222.19 256,256 Z"
+           id="path3454" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:#4a8ec6"
+           d="m 317.217,194.783 0,122.435 c 33.81,0 61.217,-27.408 61.217,-61.217 0,-33.809 -27.407,-61.218 -61.217,-61.218 z"
+           id="path3456" />
+        <g
+           id="g3458" />
+        <g
+           id="g3460" />
+        <g
+           id="g3462" />
+        <g
+           id="g3464" />
+        <g
+           id="g3466" />
+        <g
+           id="g3468" />
+        <g
+           id="g3470" />
+        <g
+           id="g3472" />
+        <g
+           id="g3474" />
+        <g
+           id="g3476" />
+        <g
+           id="g3478" />
+        <g
+           id="g3480" />
+        <g
+           id="g3482" />
+        <g
+           id="g3484" />
+        <g
+           id="g3486" />
+      </g>
     </g>
   </g>
 </svg>
