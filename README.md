@@ -29,11 +29,11 @@
 ## Tabela de conteúdos
 =================
 
-      * [Download](#download)
-      * [Desenvolvendo](#desenvolvendo)
-         * [Release notes](#release-notes)
-         * [Ideias para o futuro do Galileo SEO Assistant](#ideias-para-o-futuro-do-galileo-seo-assistant)
-      * [Licença](#licença)
+  * [Download](#download)
+  * [Desenvolvendo](#desenvolvendo)
+  * [Release notes](#release-notes)
+  * [Ideias para o futuro do Galileo SEO Assistant](#ideias-para-o-futuro-do-galileo-seo-assistant)
+  * [Licença](#licença)
 
 ## Download
 
@@ -51,14 +51,14 @@ Para download da extensão visite a [página do Galileo SEO Assistant na Chrome 
     3. Clique on `Carregar extensao`
     4. Selecione o diretorio `build`.
 
-### Release notes
+## Release notes
 
 0.0.2
 * Corrigido problema que mostrava links relativos usando chrome-extension no começo;
 * Cor principal alterada para azul;
 * Adicionada tooltip no título e subtítulo
 
-### Ideias para o futuro do Galileo SEO Assistant
+## Ideias para o futuro do Galileo SEO Assistant
 
 * Internacionalização dos conteúdos de texto;
 * Adicionar screenshots na webstore;
