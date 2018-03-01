@@ -27,7 +27,6 @@
 * outros ...
 
 ## Tabela de conteúdos
-=================
 
   * [Download](#download)
   * [Desenvolvendo](#desenvolvendo)
