@@ -26,6 +26,15 @@
 * meta description
 * outros ...
 
+## Tabela de conteúdos
+=================
+
+      * [Download](#download)
+      * [Desenvolvendo](#desenvolvendo)
+         * [Release notes](#release-notes)
+         * [Ideias para o futuro do Galileo SEO Assistant](#ideias-para-o-futuro-do-galileo-seo-assistant)
+      * [Licença](#licença)
+
 ## Download
 
 Para download da extensão visite a [página do Galileo SEO Assistant na Chrome Webstore](https://chrome.google.com/webstore/detail/galileo-seo-assistant/jmehfdipeccfhbfbmkfpikgmfpamlalf)
