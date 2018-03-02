@@ -362,7 +362,7 @@ builtin-status-codes@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-2.0.0.tgz#6f22003baacf003ccd287afe6872151fddc58579"
 
-bulma@0.6.2:
+bulma@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.6.2.tgz#f4b1d11d5acc51a79644eb0a2b0b10649d3d71f5"
 
@@ -450,7 +450,7 @@ clean-css@4.1.x:
   dependencies:
     source-map "0.5.x"
 
-clean-webpack-plugin@^0.1.17:
+clean-webpack-plugin@0.1.17:
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/clean-webpack-plugin/-/clean-webpack-plugin-0.1.17.tgz#71c57242e6d47204d46f809413176e7bed28ec49"
   dependencies:
@@ -599,7 +599,7 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
-copy-webpack-plugin@^4.2.0:
+copy-webpack-plugin@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.2.0.tgz#252bb94597f96399d23d7fad355f8d3a661ac096"
   dependencies:
@@ -2950,9 +2950,9 @@ strip-json-comments@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
 
-style-loader@^0.13.0:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.13.1.tgz#468280efbc0473023cd3a6cd56e33b5a1d7fc3a9"
+style-loader@0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.13.0.tgz#abac11a20450f3ddea222b44c0c6342a8862db47"
   dependencies:
     loader-utils "^0.2.7"
 

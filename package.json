@@ -20,6 +20,6 @@
     "write-file-webpack-plugin": "3.4.2"
   },
   "dependencies": {
-    "bulma": "0.6.2"
+    "bulma": "^0.6.2"
   }
 }
