@@ -9,18 +9,34 @@ let page;
 let main;
 let title;
 let subtitle;
+let header;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
         let seo = new SEOExtractor(StringToDOM(request.source.dom), rules);
         let results = [];
+        header = document.querySelector("[data-selector='header']");
 
         Object.keys(rules).forEach(rule => {
             results.push({
                 result: seo.extract(rule),
-                name: rules[rule].name
+                name: rules[rule].name,
+                tests: rules[rule].tests
             });
         });
+
+        results.forEach(result => {
+            if(typeof result.tests !== "undefined") {
+                result.tests.forEach(test => {
+                    result.result.test = test.test(result.result);
+                });
+            }
+            else {
+                results.tests = {};
+            }
+        });
+        let hasPassed = Object.values(results).every(result => result.tests === undefined || results.tests);
+        console.log(hasPassed);
 
         title.innerText = request.source.title.length <= 35 ? request.source.title : `${request.source.title.substr(0,35)}...`;
         title.setAttribute("title", request.source.title);

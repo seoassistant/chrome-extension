@@ -1,7 +1,12 @@
 const rules = {
     "title": {
         name: "Titulo da pagina",
-        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("title") || [], title => title.innerText)
+        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("title") || [], title => title.innerText),
+        tests: [{
+            description: "Deve haver 1 e somente 1 titulo por pagina",
+            test: (results) => results.length === 1,
+            level: "error"
+        }]
     },
     "canonical": {
         name: "URL canonica",
@@ -9,7 +14,12 @@ const rules = {
     },
     "h1": {
         name: "H1",
-        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("h1"), h1 => h1.innerText)
+        get: (dom) => Array.prototype.map.call(dom.querySelectorAll("h1"), h1 => h1.innerText),
+        tests: [{
+            description: "Deve haver 1 e somente <h1> por pagina",
+            test: (results) => results.length === 1,
+            level: "error"
+        }]
     },
     "h2-list": {
         name: "Lista de H2",
