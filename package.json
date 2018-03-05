@@ -4,10 +4,11 @@
   "description": "A chrome extension to help you test your site SEO.",
   "scripts": {
     "build": "node utils/build.js",
-    "start": "node utils/webserver.js"
+    "start": "node utils/webserver.js",
+    "test": "ava"
   },
   "devDependencies": {
-    "ava": "1.0.0-beta.3",
+    "ava": "^0.25.0",
     "clean-webpack-plugin": "0.1.17",
     "copy-webpack-plugin": "4.2.0",
     "css-loader": "0.25.0",
