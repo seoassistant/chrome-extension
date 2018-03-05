@@ -1,4 +1,4 @@
-import SEOExtractor from "./popup/seo-extractor";
+import SEOExtractor from "./seo-extractor/seo-extractor";
 import rules from "./popup/rules";
 import "../img/icon-34.png";
 import "../img/icon-128.png";
@@ -16,7 +16,6 @@ chrome.runtime.onMessage.addListener(function(request) {
         let seo = new SEOExtractor(StringToDOM(request.source.dom), rules);
         let results = [];
         header = document.querySelector("[data-selector='header']");
-
         Object.keys(rules).forEach(rule => {
             results.push({
                 result: seo.extract(rule),
@@ -24,7 +23,7 @@ chrome.runtime.onMessage.addListener(function(request) {
                 tests: rules[rule].tests
             });
         });
-
+        console.log(seo);
         results.forEach(result => {
             if(typeof result.tests !== "undefined") {
                 result.tests.forEach(test => {
