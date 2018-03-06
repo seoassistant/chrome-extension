@@ -27,7 +27,7 @@ chrome.runtime.onMessage.addListener(function(request) {
         results.forEach(result => {
             if(typeof result.tests !== "undefined") {
                 result.tests.forEach(test => {
-                    result.result.test = test.test(result.result);
+                    result.result.test = test.expect(result.result);
                 });
             }
             else {
