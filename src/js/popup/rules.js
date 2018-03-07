@@ -16,6 +16,15 @@ const rules = [
             level: "error"
         }]
     }, {
+        name: "Imagens sem atributo alt preenchido",
+        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("img:not([alt]), img[alt='']"), img => img.getAttribute("src")),
+        tests: [{
+            description: "All images should have alt attributes",
+            expect: (results) => results.length === 0,
+            level: "warning"
+        }]
+    },
+    {
         name: "H1",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h1"), h1 => h1.innerText),
         tests: [{
