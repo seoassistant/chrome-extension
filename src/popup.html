@@ -17,7 +17,12 @@
 </head>
 <body>
   <section>
-    <header data-selector="header" class="hero">
+    <header data-selector="header" class="hero" data-selector-class-map='{
+          "error": "is-danger",
+          "warning": "is-warning",
+          "info": "is-success",
+          "success": "is-success"
+    }'>
         <div class="hero-body">
             <h1 class="title is-4" data-selector="header__title"></h1>
             <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>

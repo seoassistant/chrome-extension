@@ -46,7 +46,6 @@ class SEOAssistant {
                 this._results.groupedByTestLevel[test.level].push(result);
             });
         });
-        console.log(this._status);
     }
 
     get rules() {
