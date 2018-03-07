@@ -11,8 +11,8 @@ const rules = [
         name: "URL canonica",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='canonical']") || [], canonical => canonical.href),
         tests: [{
-            description: "Empty test",
-            expect: (results) => true,
+            description: "There sould be one and only one canonical tag",
+            expect: (results) => results.length === 1,
             level: "error"
         }]
     }, {
@@ -21,7 +21,7 @@ const rules = [
         tests: [{
             description: "Deve haver 1 e somente <h1> por pagina",
             expect: (results) => results.length === 1,
-            level: "error"
+            level: "warning"
         }]
     }, {
         name: "Lista de H2",

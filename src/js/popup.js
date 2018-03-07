@@ -15,6 +15,13 @@ chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
         let assistant = new SEOAssistant(StringToDOM(request.source.dom), rules);
         header = document.querySelector("[data-selector='header']");
+        let headerClassByStatus = {
+            "error": "is-danger",
+            "warning": "is-warning",
+            "info": "is-success",
+            "success": "is-success"
+        };
+        header.setAttribute("class", `${header.getAttribute("class")} ${headerClassByStatus[assistant.status]}`);
         title.innerText = request.source.title.length <= 35 ? request.source.title : `${request.source.title.substr(0,35)}...`;
         title.setAttribute("title", request.source.title);
         subtitle.innerText = request.source.url.length <= 60 ? request.source.url : `${request.source.url.substr(0,60)}...`;
