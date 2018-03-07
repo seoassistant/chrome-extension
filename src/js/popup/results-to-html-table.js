@@ -8,13 +8,13 @@ const ResultsToHTMLTable = (results) => {
                 </tr>
             </thead>
             <tbody>
-                ${Object.keys(results).map( prop => `<tr>
-                    <td> ${results[prop].name}</td>
-                    <td> ${Array.isArray(results[prop].result) && results[prop].result.length > 1  ?
-                            `<ul>${results[prop].result.map( item => `
+                ${results.map( result => `<tr>
+                    <td> ${result.name}</td>
+                    <td> ${Array.isArray(result.extracted) && result.extracted.length > 1  ?
+                            `<ul>${result.extracted.map( item => `
                                <li>${item}</li> 
                             `).join("")}</ul>` :
-                            `${results[prop].result}`
+                            `${result.extracted}`
                     }</td>
                 </tr>`).join("")}
             </tbody>

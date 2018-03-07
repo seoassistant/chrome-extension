@@ -1,4 +1,4 @@
-import SEOExtractor from "./seo-extractor/seo-extractor";
+import SEOAssistant from "./seo-assistant/seo-assistant";
 import rules from "./popup/rules";
 import "../img/icon-34.png";
 import "../img/icon-128.png";
@@ -13,35 +13,13 @@ let header;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
-        let seo = new SEOExtractor(StringToDOM(request.source.dom), rules);
-        let results = [];
+        let assistant = new SEOAssistant(StringToDOM(request.source.dom), rules);
         header = document.querySelector("[data-selector='header']");
-        Object.keys(rules).forEach(rule => {
-            results.push({
-                result: seo.extract(rule),
-                name: rules[rule].name,
-                tests: rules[rule].tests
-            });
-        });
-        console.log(seo);
-        results.forEach(result => {
-            if(typeof result.tests !== "undefined") {
-                result.tests.forEach(test => {
-                    result.result.test = test.expect(result.result);
-                });
-            }
-            else {
-                results.tests = {};
-            }
-        });
-        let hasPassed = Object.values(results).every(result => result.tests === undefined || results.tests);
-        console.log(hasPassed);
-
         title.innerText = request.source.title.length <= 35 ? request.source.title : `${request.source.title.substr(0,35)}...`;
         title.setAttribute("title", request.source.title);
         subtitle.innerText = request.source.url.length <= 60 ? request.source.url : `${request.source.url.substr(0,60)}...`;
         subtitle.setAttribute("title", request.source.url);
-        main.innerHTML = ResultsToHTMLTable(results);
+        main.innerHTML = ResultsToHTMLTable(assistant.results);
    }
 });
 
