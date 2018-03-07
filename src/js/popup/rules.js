@@ -17,7 +17,7 @@ const rules = [
         }]
     }, {
         name: "Imagens sem atributo alt preenchido",
-        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("img:not([alt]), img[alt='']"), img => img.getAttribute("src")),
+        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("img[src]:not([alt]), img[src][alt='']"), img => `<img src='${img.getAttribute("src")}'>`),
         tests: [{
             description: "All images should have alt attributes",
             expect: (results) => results.length === 0,
