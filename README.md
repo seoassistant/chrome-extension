@@ -1,8 +1,9 @@
-<h1 align="center">
+<h1 align="center">Galileo - SEO Assistant</h1>
+<p align="center">
   <br>
    <img src="src/img/icon-128.png" alt="Logo Galileo" title="Logo Galileo" />
   <br>
-</h1>
+</p>
 <p align="center">
   <a href="https://chrome.google.com/webstore/detail/galileo-seo-assistant/jmehfdipeccfhbfbmkfpikgmfpamlalf">
     <img src="https://img.shields.io/chrome-web-store/v/jmehfdipeccfhbfbmkfpikgmfpamlalf.svg">
