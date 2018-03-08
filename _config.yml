@@ -1,2 +1,4 @@
 show_title: false
-show_downloads: true
+
+gems:
+  - jemoji
