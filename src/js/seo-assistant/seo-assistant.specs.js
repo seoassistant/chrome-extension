@@ -1,14 +1,14 @@
 import test from "ava";
-import SEOExtractor from "./seo-assistant";
+import SEOAssistant from "./seo-assistant";
 import rules from "./basic-rules.mock";
 import BasicDOMString from "./basic-dom.mock";
 
 let DOMParser = require("xmldom").DOMParser;
 let BasicDOM = new DOMParser().parseFromString(BasicDOMString);
-let BasicSEO = new SEOExtractor(BasicDOM, rules);
+let BasicSEO = new SEOAssistant(BasicDOM, rules);
 
 test("SEOAssistant is defined", t => {
-   t.truthy(SEOExtractor);
+   t.truthy(SEOAssistant);
 });
 
 test("SEOAssistant constructor is fine", t => {
