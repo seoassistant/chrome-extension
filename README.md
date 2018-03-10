@@ -53,6 +53,11 @@ Para download da extensão visite a [página do Galileo SEO Assistant na Chrome 
 
 ## Release notes
 
+0.0.5
+* Mostra cores verde, amarelo ou vermelho no cabeçalho do aplicativo dependendo do resultado dos testes.
+* Adiciona testes para todas as regras de exemplo.
+* Adiciona ava para testes unitários.
+
 0.0.2
 * Corrigido problema que mostrava links relativos usando chrome-extension no começo;
 * Cor principal alterada para azul;
