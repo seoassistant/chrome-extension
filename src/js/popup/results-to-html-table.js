@@ -4,7 +4,7 @@ const ResultsToHTMLTable = (results) => {
             <thead>
                 <tr class="has-text-weight-semibold">
                     <td> Propriedade</td>
-                    <td> Conteudo </td>
+                    <td> Conteúdo </td>
                 </tr>
             </thead>
             <tbody>

@@ -1,4 +1,5 @@
 import StringToDOM from "../popup/string-to-dom";
+import ScoreCalculator from "../score-calculator/score-calculator";
 
 class SEOAssistant {
 
@@ -6,6 +7,19 @@ class SEOAssistant {
         this._page = typeof DOM === "string" ? StringToDOM(DOM) : DOM;
         this._rules = rules;
         this._status = "success";
+        this._score = 0;
+        this._levels = {
+            "error": {
+                "weight":5,
+                "total":0,
+                "passed":0
+            },
+            "warning": {
+                "weight":2,
+                "total":0,
+                "passed":0
+            }
+        };
 
         this._results = {
             list: [],
@@ -13,12 +27,11 @@ class SEOAssistant {
             byTestDescription: {},
             groupedByTestLevel: {
                 error: [],
-                warning: [],
-                info: []
+                warning: []
             }
         };
 
-        let statusPriorities = ["error", "warning", "info", "success"];
+        let statusPriorities = ["error", "warning", "success"];
 
         this._rules.forEach(rule => {
             let extracted = rule.extract(this._page);
@@ -36,6 +49,9 @@ class SEOAssistant {
                     passed
                 };
 
+                if(passed) this._levels[test.level].passed++;
+                this._levels[test.level].total++;
+
                 let isNewStatusLevelHigher = statusPriorities.indexOf(test.level) !== -1 && statusPriorities.indexOf(test.level) < statusPriorities.indexOf(this._status);
                 if(!passed && isNewStatusLevelHigher){
                     this._status = test.level;
@@ -46,6 +62,13 @@ class SEOAssistant {
                 this._results.groupedByTestLevel[test.level].push(result);
             });
         });
+
+        let levelsToScore = (level) => {
+            return {"weight": level.weight, "total": level.total, "partial": level.passed}
+        };
+
+        let calculator = new ScoreCalculator(Object.values(this._levels), levelsToScore);
+        this._score = calculator.score;
     }
 
     get rules() {
@@ -60,6 +83,9 @@ class SEOAssistant {
         return this._status;
     }
 
+    get score() {
+        return this._score;
+    }
 }
 
 export default SEOAssistant;
