@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
   <meta charset="UTF-8">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Galileo - SEO Assistant</title>
   <style>
@@ -23,15 +24,17 @@
           "info": "is-success",
           "success": "is-success"
     }'>
-        <div class="hero-body">
-            <h1 class="title is-4" data-selector="header__title"></h1>
-            <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>
-        </div>
-
-
+    <div class="hero-body">
+        <h1 class="title is-4" data-selector="header__title"></h1>
+        <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>
+    </div>
     </header>
-    <!-- <p data-selector="score"></p> -->
-    <main data-selector="main" class="container"></main>
+
+    <main class="container section">
+      <header data-selector="score"></header>
+      <section data-selector="main"></section>
+    </main>
+
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">

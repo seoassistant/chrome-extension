@@ -8,21 +8,22 @@ class SEOAssistant {
         this._rules = rules;
         this._status = "success";
         this._score = 0;
-        this._levels = {
+        let levels = {
             "error": {
                 "weight":5,
-                "total":0,
+                "total": 0,
                 "passed":0
             },
             "warning": {
                 "weight":2,
-                "total":0,
+                "total": 0,
                 "passed":0
             }
         };
 
         this._results = {
             list: [],
+            testsList: [],
             byName: {},
             byTestDescription: {},
             groupedByTestLevel: {
@@ -49,8 +50,8 @@ class SEOAssistant {
                     passed
                 };
 
-                if(passed) this._levels[test.level].passed++;
-                this._levels[test.level].total++;
+                if(passed) levels[test.level].passed++;
+                levels[test.level].total++;
 
                 let isNewStatusLevelHigher = statusPriorities.indexOf(test.level) !== -1 && statusPriorities.indexOf(test.level) < statusPriorities.indexOf(this._status);
                 if(!passed && isNewStatusLevelHigher){
@@ -58,16 +59,22 @@ class SEOAssistant {
                 }
 
                 this._results.byTestDescription[test.description] = result;
+                this._results.testsList.push({
+                    description: test.description,
+                    passed: passed,
+                    extracted: extracted,
+                    level: test.level
+                });
                 this._results.byTestDescription[test.description].tests = rule.tests;
                 this._results.groupedByTestLevel[test.level].push(result);
             });
         });
-
+        debugger;
         let levelsToScore = (level) => {
             return {"weight": level.weight, "total": level.total, "partial": level.passed}
         };
 
-        let calculator = new ScoreCalculator(Object.values(this._levels), levelsToScore);
+        let calculator = new ScoreCalculator(Object.values(levels), levelsToScore);
         this._score = calculator.score;
     }
 
@@ -81,6 +88,10 @@ class SEOAssistant {
 
     get status() {
         return this._status;
+    }
+
+    get tests() {
+        return this._results.testsList;
     }
 
     get score() {

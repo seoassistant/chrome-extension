@@ -1,6 +1,6 @@
 {
   "name": "galileo-seo-assistant",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A chrome extension to help you test your site SEO.",
   "scripts": {
     "build": "node utils/build.js",
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "bulma": "0.6.2",
+    "font-awesome": "4.7.0",
     "xmldom": "0.1.27"
   }
 }
