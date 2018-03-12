@@ -60,11 +60,14 @@ var options = {
             from: "src/manifest.json",
             transform: function (content, path) {
                 // generates the manifest file using the package.json informations
-                return Buffer.from(JSON.stringify({
-                    description: process.env.npm_package_description,
-                    version: process.env.npm_package_version,
-                    ...JSON.parse(content.toString())
-                }))
+                // https://github.com/galileo-seo-assistant/galileo-seo-assistant/issues/4
+                return Buffer.from(JSON.stringify(
+                  Object.assign(
+                    JSON.parse(content.toString()), {
+                      description: process.env.npm_package_description,
+                      version: process.env.npm_package_version,
+                    })
+                  ))
             }
         }]),
         new HtmlWebpackPlugin({
