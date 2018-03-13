@@ -13,47 +13,19 @@
       ul > li {
           list-style: inside;
       }
-
   </style>
 </head>
 <body>
-  <section>
-    <header data-selector="header" class="hero" data-selector-class-map='{
-          "error": "is-danger",
-          "warning": "is-warning",
-          "info": "is-success",
-          "success": "is-success"
-    }'>
-      <div class="hero-body">
-          <h1 class="title is-4" data-selector="header__title"></h1>
-          <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>
+  <main data-selector="main"></main>
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Galileo - SEO Assistant</strong> by <a href="https://github.com">Teles</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <a href="https://github.com/teles/galileo-seo-assistant"> Get the code.</a>
+        </p>
       </div>
-      <div class="hero-foot">
-        <nav class="tabs is-boxed is-fullwidth">
-          <div class="container">
-            <ul>
-              <li class="is-active"><a data-selector="tab-overview">Overview</a></li>
-              <li><a data-selector="tab-passed">Passed <span data-selector="tab-counter">(14)</span></a></li>
-              <li><a data-selector="tab-error">Error <span data-selector="tab-counter">(0)</span></a></li>
-              <li><a data-selector="tab-warning">Warning <span data-selector="tab-counter">(0)</span></a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <main class="container section" data-selector="main"></main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="content has-text-centered">
-          <p>
-            <strong>Galileo - SEO Assistant</strong> by <a href="https://github.com">Teles</a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <a href="https://github.com/teles/galileo-seo-assistant"> Get the code.</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-  </section>
+    </div>
+  </footer>
 </body>
 </html>

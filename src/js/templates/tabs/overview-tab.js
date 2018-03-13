@@ -3,6 +3,7 @@ import TestsToReport from "../tests-to-report";
 
 const OverviewTab = (data) => {
     let section = document.createElement("section");
+    section.setAttribute("class", "section");
     let scoreHeader = ScoreHeader(data);
     let testsToReport = TestsToReport(data.tests);
     section.insertAdjacentHTML("afterbegin", scoreHeader);
