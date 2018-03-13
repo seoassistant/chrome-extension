@@ -69,7 +69,7 @@ class SEOAssistant {
                 this._results.groupedByTestLevel[test.level].push(result);
             });
         });
-        debugger;
+
         let levelsToScore = (level) => {
             return {"weight": level.weight, "total": level.total, "partial": level.passed}
         };

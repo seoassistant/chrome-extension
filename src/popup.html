@@ -24,16 +24,25 @@
           "info": "is-success",
           "success": "is-success"
     }'>
-    <div class="hero-body">
-        <h1 class="title is-4" data-selector="header__title"></h1>
-        <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>
-    </div>
+      <div class="hero-body">
+          <h1 class="title is-4" data-selector="header__title"></h1>
+          <h2 class="subtitle is-6" data-selector="header__subtitle"></h2>
+      </div>
+      <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+          <div class="container">
+            <ul>
+              <li class="is-active"><a data-selector="tab-overview">Overview</a></li>
+              <li><a data-selector="tab-passed">Passed <span data-selector="tab-counter">(14)</span></a></li>
+              <li><a data-selector="tab-error">Error <span data-selector="tab-counter">(0)</span></a></li>
+              <li><a data-selector="tab-warning">Warning <span data-selector="tab-counter">(0)</span></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
 
-    <main class="container section">
-      <header data-selector="score"></header>
-      <section data-selector="main"></section>
-    </main>
+    <main class="container section" data-selector="main"></main>
 
     <footer class="footer">
       <div class="container">
