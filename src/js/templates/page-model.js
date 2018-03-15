@@ -4,8 +4,8 @@ import ErrorTab from "./tabs/error-tab";
 import WarningTab from "./tabs/warning-tab";
 
 class PageModel {
-    constructor(page, data) {
-        let tabs = {
+    constructor(page, data, mainNode) {
+        this.tabs = {
             overview: {
                 name: "overview",
                 text: "Overview",
@@ -47,7 +47,7 @@ class PageModel {
             "info": "is-success",
             "success": "is-success"
         };
-        let activeTab = tabs.overview.name;
+        let activeTab = this.tabs.overview.name;
 
         let header = document.createElement("header");
         header.setAttribute("class", `hero ${statusToHeaderClass[data.status]}`);
@@ -59,16 +59,14 @@ class PageModel {
 
         let tabList = document.createElement("ul");
 
-        Object.values(tabs).forEach(tab => {
+        Object.values(this.tabs).forEach(tab => {
             let tabItem = document.createElement("li");
+            tabItem.setAttribute("data-selector", tab.selector);
             tabItem.innerHTML = `<a>${tab.text}</a>`;
             tabItem.onclick = () => {
-                Array.prototype.forEach.call(tabList.children, (otherTab) => {
-                    otherTab.setAttribute("class", "");
-                });
-                tabItem.setAttribute("class", "is-active");
+                this.updateTab(tab.name);
             };
-            let isTabSelected = tab.innerText === tabs[activeTab].text;
+            let isTabSelected = tab.innerText === this.tabs[activeTab].text;
             if(isTabSelected) {
                 tabItem.setAttribute("class", "is-active");
             }
@@ -88,15 +86,22 @@ class PageModel {
 
         header.insertAdjacentHTML("afterbegin", headerBody);
         header.appendChild(headerFooter);
-        let body = tabs[activeTab].content;
+        let body = this.tabs[activeTab].content;
         this.header = header;
-        this.body = body;
+        this.mainNode = mainNode;
+        this.body = document.createElement("div");
     }
 
-
-
-    set activeTab(tabName) {
-
+    updateTab(tabName) {
+        let tabNode = document.querySelector(`[data-selector='${this.tabs[tabName].selector}']`);
+        let tabContent = this.tabs[tabName].content;
+        tabNode.setAttribute("class", "is-active");
+        debugger;
+        let otherTabs = Object.values(this.tabs).filter(tab => tab.name !== tabName).map(tab => document.querySelector(`[data-selector='${tab.selector}']`))
+        otherTabs.forEach(tab => tab.setAttribute("class", ""));
+        let body = this.mainNode.querySelector("[data-selector='body']");
+        body.innerHTML = "";
+        body.appendChild(tabContent);
     };
 }
 

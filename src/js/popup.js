@@ -10,10 +10,11 @@ let main;
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
         let assistant = new SEOAssistant(StringToDOM(request.source.dom), rules);
-        let pageHeader = new PageHeader(request.source, assistant);
+        let pageHeader = new PageHeader(request.source, assistant, main);
         main.appendChild(pageHeader.header);
+        pageHeader.body.setAttribute("data-selector", "body");
         main.appendChild(pageHeader.body);
-        // pageHeader.activateTab("overview");
+        pageHeader.updateTab("overview");
    }
 });
 
