@@ -2,11 +2,11 @@ import ResultsToHTMLTable from "../results-to-html-table";
 
 const ErrorTab = (data) => {
     let section = document.createElement("section");
-    section.setAttribute("style", "display:block;max-width:100%");
+    section.setAttribute("style", "display:block;max-width:100%;min-height:240px;");
     section.setAttribute("class", "section");
     let results = data.errorsNotPassed;
     let statusTextClass = {
-        "passed": "has-text-success",
+        "success": "has-text-success",
         "warning": "has-text-warning",
         "error": "has-text-danger"
     };

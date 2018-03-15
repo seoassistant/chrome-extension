@@ -100,11 +100,11 @@ const rules = [
             level: "error"
         }]
     }, {
-        name: "Images",
-        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("img"), img => img),
+        name: "Images without alt",
+        extract: (dom) => Array.prototype.filter.call(dom.querySelectorAll("img[src]"), img => img.getAttribute("alt") === undefined || img.getAttribute("alt") === "").map(image => `<img src='${image.src}'>`),
         tests: [{
             description: "All images should have alt attribute",
-            expect: (results) => results.every(result => result.getAttribute("alt") !== ""),
+            expect: (results) => results.length === 0,
             level: "warning"
         }]
     }, {

@@ -3,9 +3,10 @@ import ResultsToHTMLTable from "../results-to-html-table";
 const WarningTab = (data) => {
     let section = document.createElement("section");
     section.setAttribute("class", "section");
+    section.setAttribute("style", "display:block;max-width:100%;min-height:240px;");
     let results = data.warningsNotPassed;
     let statusTextClass = {
-        "passed": "has-text-success",
+        "success": "has-text-success",
         "warning": "has-text-warning",
         "error": "has-text-danger"
     };
