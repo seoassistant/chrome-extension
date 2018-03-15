@@ -3,8 +3,8 @@ const ResultsToHTMLTable = (results) => {
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
                 <tr class="has-text-weight-semibold">
-                    <td> Propriedade</td>
-                    <td> Conteúdo </td>
+                    <td> Element</td>
+                    <td> Content </td>
                 </tr>
             </thead>
             <tbody>

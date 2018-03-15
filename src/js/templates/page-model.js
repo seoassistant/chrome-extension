@@ -10,25 +10,29 @@ class PageModel {
                 name: "overview",
                 text: "Overview",
                 selector: "tab-overview",
-                content: OverviewTab(data)
+                content: OverviewTab(data),
+                count: null
             },
             passed: {
                 name: "passed",
                 text: "Passed",
                 selector: "tab-passed",
-                content: PassedTab()
+                content: PassedTab(data),
+                count: data.allPassed.length
             },
             error: {
                 name: "error",
                 text: "Error",
                 selector: "tab-error",
-                content: ErrorTab()
+                content: ErrorTab(data),
+                count: data.errorsNotPassed.length
             },
             warning: {
                 name: "warning",
                 text: "Warning",
                 selector: "tab-warning",
-                content: WarningTab()
+                content: WarningTab(data),
+                count: data.warningsNotPassed.length
             }
         };
         let headers = {
@@ -62,7 +66,7 @@ class PageModel {
         Object.values(this.tabs).forEach(tab => {
             let tabItem = document.createElement("li");
             tabItem.setAttribute("data-selector", tab.selector);
-            tabItem.innerHTML = `<a>${tab.text}</a>`;
+            tabItem.innerHTML = `<a>${tab.text}${tab.count !== null ? `(${tab.count})` : ""}</a>`;
             tabItem.onclick = () => {
                 this.updateTab(tab.name);
             };
@@ -96,7 +100,6 @@ class PageModel {
         let tabNode = document.querySelector(`[data-selector='${this.tabs[tabName].selector}']`);
         let tabContent = this.tabs[tabName].content;
         tabNode.setAttribute("class", "is-active");
-        debugger;
         let otherTabs = Object.values(this.tabs).filter(tab => tab.name !== tabName).map(tab => document.querySelector(`[data-selector='${tab.selector}']`))
         otherTabs.forEach(tab => tab.setAttribute("class", ""));
         let body = this.mainNode.querySelector("[data-selector='body']");

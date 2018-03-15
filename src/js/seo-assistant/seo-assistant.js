@@ -45,9 +45,11 @@ class SEOAssistant {
 
             rule.tests.forEach(test => {
                 let passed = test.expect(extracted);
+                let name = rule.name;
                 let result = {
                     extracted,
-                    passed
+                    passed,
+                    name
                 };
 
                 if(passed) levels[test.level].passed++;
@@ -96,6 +98,18 @@ class SEOAssistant {
 
     get score() {
         return this._score;
+    }
+
+    get errorsNotPassed () {
+        return this._results.groupedByTestLevel.error.filter(error => !error.passed);
+    }
+
+    get warningsNotPassed () {
+        return this._results.groupedByTestLevel.warning.filter(warning => !warning.passed);
+    }
+
+    get allPassed () {
+        return [...this._results.groupedByTestLevel.warning.filter(warning => warning.passed), ...this._results.groupedByTestLevel.error.filter(error => error.passed)];
     }
 }
 
