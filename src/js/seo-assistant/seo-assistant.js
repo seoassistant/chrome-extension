@@ -9,15 +9,15 @@ class SEOAssistant {
         this._status = "success";
         this._score = 0;
         let levels = {
-            "error": {
-                "weight":5,
-                "total": 0,
-                "passed":0
+            error: {
+                weight:5,
+                total: 0,
+                passed:0
             },
-            "warning": {
-                "weight":2,
-                "total": 0,
-                "passed":0
+            warning: {
+                weight:2,
+                total: 0,
+                passed:0
             }
         };
 
@@ -73,7 +73,11 @@ class SEOAssistant {
         });
 
         let levelsToScore = (level) => {
-            return {"weight": level.weight, "total": level.total, "partial": level.passed}
+            return {
+                weight: level.weight,
+                total: level.total,
+                partial: level.passed
+            }
         };
 
         let calculator = new ScoreCalculator(Object.values(levels), levelsToScore);

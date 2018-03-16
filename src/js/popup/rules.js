@@ -48,7 +48,7 @@ const rules = [
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='prev']"), prev => prev.href),
         tests: [{
             description: "Empty test for rel prev",
-            expect: (results) => true,
+            expect: (results) => results.length > 0,
             level: "warning"
         }]
     }, {
@@ -56,7 +56,7 @@ const rules = [
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='next']"), next => next.href),
         tests: [{
             description: "Empty test for rel next",
-            expect: (results) => true,
+            expect: (results) => results.length > 0,
             level: "warning"
         }]
     }, {
@@ -64,7 +64,7 @@ const rules = [
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("meta[name='robots']"), robots => robots.content),
         tests: [{
             description: "Empty test for meta robots",
-            expect: (results) => true,
+            expect: (results) => results.length > 0,
             level: "error"
         }]
     }, {
@@ -72,7 +72,7 @@ const rules = [
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='amphtml']"), link => link.href),
         tests: [{
             description: "Empty test for AMP html",
-            expect: (results) => true,
+            expect: (results) => results.length > 0,
             level: "warning"
         }]
     }, {
@@ -80,15 +80,7 @@ const rules = [
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("meta[name='description']"), meta => meta.content),
         tests: [{
             description: "Empty test for Meta Description",
-            expect: (results) => true,
-            level: "error"
-        }]
-    }, {
-        name: "Data do prerender",
-        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("[data-prerender-date]"), node => node.getAttribute("data-prerender-date")),
-        tests: [{
-            description: "Empty test for Prerender Date",
-            expect: (results) => true,
+            expect: (results) => results.length > 0,
             level: "error"
         }]
     }, {
@@ -96,7 +88,7 @@ const rules = [
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='alternate']"), link => link.getAttribute("href")),
         tests: [{
             description: "Empty test for alternates",
-            expect: (results) => true,
+            expect: (results) => results.length > 0,
             level: "error"
         }]
     }, {
