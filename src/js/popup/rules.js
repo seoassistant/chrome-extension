@@ -1,21 +1,21 @@
 const rules = [
     {
         name: "Titulo da pagina",
-        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("title") || [], title => title.innerText),
+        extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("head title") || [], title => title.innerText),
         tests: [{
-            description: "There should be one and only one &lt;title&gt; per page.",
+            description: "Deve existir um e apenas um titulo na pagina",
             expect: (results) => results.length === 1,
             level: "error"
         }]
     }, {
-        name: "Canonical url",
+        name: "URL canônica",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='canonical']") || [], canonical => canonical.href),
         tests: [{
-            description: "There sould be one and only one canonical tag.",
+            description: "Deve existir uma e apenas uma url canônica na página. ",
             expect: (results) => results.length === 1,
             level: "error"
         }, {
-            description: "Canonical should be a valid absolute url.",
+            description: "Caminho da url canônica deve ser absoluto.",
             expect: (results) => results.length >= 1 ? results.every(result => /^http/.test(result)) : false,
             level: "error"
         }]
@@ -23,7 +23,7 @@ const rules = [
         name: "H1",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h1"), h1 => h1.innerText),
         tests: [{
-            description: "There should be one and only one &lt;h1&gt; per page.",
+            description: "Deve existir apenas um &lt;h1&gt; por página.",
             expect: (results) => results.length === 1,
             level: "error"
         }]
@@ -31,7 +31,7 @@ const rules = [
         name: "Lista de H2",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h2"), h2 => h2.innerText),
         tests: [{
-            description: "Would be nice to have at least one &lt;h2&gt;",
+            description: "É boa prática ter ao menos um &lt;h2&gt;",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
@@ -39,23 +39,23 @@ const rules = [
         name: "Lista de H3",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h3"), h3 => h3.innerText),
         tests: [{
-            description: "Would be nice to have at least one &lt;h3&gt;",
+            description: "É boa prática ter ao menos um &lt;h3&gt;",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
     }, {
-        name: "Prev",
+        name: "Link para página anterior",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='prev']"), prev => prev.href),
         tests: [{
-            description: "Empty test for rel prev",
+            description: "Deve existir link para página anterior em uma paginação.",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
     }, {
-        name: "Next",
+        name: "Link para página seguinte.",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='next']"), next => next.href),
         tests: [{
-            description: "Empty test for rel next",
+            description: "Deve existir link para página anterior em uma paginação.",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
@@ -63,15 +63,15 @@ const rules = [
         name: "Meta Robots",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("meta[name='robots']"), robots => robots.content),
         tests: [{
-            description: "Empty test for meta robots",
+            description: "É bom existir uma tag para meta robots",
             expect: (results) => results.length > 0,
-            level: "error"
+            level: "warning"
         }]
     }, {
-        name: "AMP html",
+        name: "Link para versão AMP",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='amphtml']"), link => link.href),
         tests: [{
-            description: "Empty test for AMP html",
+            description: "É bom existir uma tag apontando para versão AMP da página.",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
@@ -79,7 +79,7 @@ const rules = [
         name: "Meta Description",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("meta[name='description']"), meta => meta.content),
         tests: [{
-            description: "Empty test for Meta Description",
+            description: "É bom existir uma tag para meta description.",
             expect: (results) => results.length > 0,
             level: "error"
         }]
@@ -87,23 +87,23 @@ const rules = [
         name: "Lista de alternates",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("link[rel='alternate']"), link => link.getAttribute("href")),
         tests: [{
-            description: "Empty test for alternates",
+            description: "É bom existir pelo menos uma url de alternate.",
             expect: (results) => results.length > 0,
-            level: "error"
+            level: "warning"
         }]
     }, {
-        name: "Images without alt",
+        name: "Imagens sem alt",
         extract: (dom) => Array.prototype.filter.call(dom.querySelectorAll("img[src]"), img => img.getAttribute("alt") === undefined || img.getAttribute("alt") === "").map(image => `<img src='${image.src}'>`),
         tests: [{
-            description: "All images should have alt attribute",
+            description: "Todas as imagens devem possuir alt",
             expect: (results) => results.length === 0,
             level: "warning"
         }]
     }, {
-        name: "Lista de links",
+        name: "Lista de âncoras",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("a[href]"), link => link.getAttribute("href")).sort(),
         tests: [{
-            description: "You should have at least one link",
+            description: "É bom existir pelo menos uma âncora.",
             expect: (results) => results.length > 0,
             level: "error"
         }]
