@@ -8,28 +8,28 @@ class PageModel {
         this.tabs = {
             overview: {
                 name: "overview",
-                text: "Overview",
+                text: "Resumo",
                 selector: "tab-overview",
                 content: OverviewTab(data),
                 count: null
             },
             passed: {
                 name: "passed",
-                text: "Passed",
+                text: "Sucesso",
                 selector: "tab-passed",
                 content: PassedTab(data),
                 count: data.allPassed.length
             },
             error: {
                 name: "error",
-                text: "Error",
+                text: "Erros",
                 selector: "tab-error",
                 content: ErrorTab(data),
                 count: data.errorsNotPassed.length
             },
             warning: {
                 name: "warning",
-                text: "Warning",
+                text: "Alertas",
                 selector: "tab-warning",
                 content: WarningTab(data),
                 count: data.warningsNotPassed.length

@@ -16,16 +16,16 @@ const WarningTab = (data) => {
                 Ok.
             </span>
             <span>
-                ${results.length} of this page elements have some warning.
+                ${results.length} elementos dessa página precisam de atenção.
             </span>
         </h3>`;
-    let no_warnings = `<h2 class="${statusTextClass[data.status]} title is-2">Very nice!</h2>
+    let no_warnings = `<h2 class="${statusTextClass[data.status]} title is-2">Muito bom!</h2>
         <h3 class="subtitle is-6">
             <span class="has-text-weight-semibold">
-                This page has no warnings.
+                Essa página não tem alertas.
             </span>
             <span>
-                Keep the good job!
+                Continue o bom trabalho.
             </span>
         </h3>`;
     section.innerHTML = results.length > 0 ? `${header_warning}${ResultsToHTMLTable(results)}` : no_warnings;

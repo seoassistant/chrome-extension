@@ -16,17 +16,17 @@ const ErrorTab = (data) => {
                 Oops.
             </span>
             <span>
-                ${results.length} of this page elements have errors.
+                ${results.length} elementos tem erros nessa página.
             </span>
         </h3>`;
 
-    let no_errors = `<h2 class="${statusTextClass[data.status]} title is-2">Awesome</h2>
+    let no_errors = `<h2 class="${statusTextClass[data.status]} title is-2">Incrível</h2>
         <h3 class="subtitle is-6">
             <span class="has-text-weight-semibold">
-                This page has no errors.
+                Essa página não possui erros.
             </span>
             <span>
-                Keep the good job!
+                Continue o bom trabalho :)
             </span>
         </h3>`;
 

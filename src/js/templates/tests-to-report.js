@@ -7,7 +7,7 @@ const TestsToReport = (tests) => {
         <thead class="subtitle is-6">
             <tr>
                 <th></th>
-                <th>Recommendations</th>
+                <th>Recomendações</th>
             </tr>
         </thead>
         <tbody>

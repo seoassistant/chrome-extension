@@ -13,20 +13,20 @@ const PassedTab = (data) => {
     let header_passed = `<h2 class="${statusTextClass[data.status]} title is-2">${results.length}/${data.results.length}</h2>
         <h3 class="subtitle is-6">
             <span class="has-text-weight-semibold">
-                You've got it!
+                Incrível
             </span>
             <span>
-                ${results.length} of this page elements have passed.
+                ${results.length} elementos dessa página estão certos.
             </span>
         </h3>`;
 
-    let no_passed = `<h2 class="${statusTextClass[data.status]} title is-2">Oouch!</h2>
+    let no_passed = `<h2 class="${statusTextClass[data.status]} title is-2">Poxa,</h2>
         <h3 class="subtitle is-6">
             <span class="has-text-weight-semibold">
-                None of this page elements have passed in tests. 
+                Nenhum elemento dessa página esta certo.
             </span>
             <span>
-                Discover how to fix them.                
+                Descubra como consertar isso.                
             </span>
         </h3>`;
     section.innerHTML = results.length > 0 ? `${header_passed}${ResultsToHTMLTable(results)}` : no_passed;
