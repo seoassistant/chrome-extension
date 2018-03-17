@@ -8,6 +8,9 @@
   <a href="https://chrome.google.com/webstore/detail/galileo-seo-assistant/jmehfdipeccfhbfbmkfpikgmfpamlalf">
     <img src="https://img.shields.io/chrome-web-store/v/jmehfdipeccfhbfbmkfpikgmfpamlalf.svg">
   </a>
+  <a href="https://gitter.im/galileo-seo-assistant/Lobby">
+    <img src="https://badges.gitter.im/galileo-seo-assistant.png">
+  </a>
 </p>  
 <p align="center">
   <strong>Galileo SEO Assistant </strong>é uma extensão para o Google Chrome. O <strong>Galileo SEO Assistant </strong> pretende facilitar a tarefa de homologação e testes de SEO de páginas web fornecendo testes automáticos para uma série de requisitos como:
