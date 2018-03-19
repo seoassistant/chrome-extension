@@ -1,11 +1,11 @@
 import test from "ava";
 import SEOAssistant from "./seo-assistant";
-import rules from "./basic-rules.mock";
+import basicElements from "./basic-elements.mock";
 import BasicDOMString from "./basic-dom.mock";
 
 let DOMParser = require("xmldom").DOMParser;
 let BasicDOM = new DOMParser().parseFromString(BasicDOMString);
-let BasicSEO = new SEOAssistant(BasicDOM, rules);
+let BasicSEO = new SEOAssistant(BasicDOM, basicElements);
 
 test("SEOAssistant is defined", t => {
    t.truthy(SEOAssistant);
@@ -13,7 +13,7 @@ test("SEOAssistant is defined", t => {
 
 test("SEOAssistant constructor is fine", t => {
    t.truthy(BasicSEO);
-   // t.deepEqual(BasicSEO.rules, rules);
+   // t.deepEqual(BasicSEO.defaultElements, defaultElements);
    // t.deepEqual(BasicSEO.page, BasicDOM);
 });
 

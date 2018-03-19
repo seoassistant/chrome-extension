@@ -1,15 +1,15 @@
 import SEOAssistant from "./seo-assistant/seo-assistant";
-import rules from "./popup/rules";
+import defaultElements from "./default-elements";
 import "../img/icon-34.png";
 import "../img/icon-128.png";
-import StringToDOM from "./popup/string-to-dom";
+import StringToDOM from "./string-to-dom";
 import PageHeader from "./templates/page-model";
 
 let main;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
-        let assistant = new SEOAssistant(StringToDOM(request.source.dom), rules);
+        let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
         let pageHeader = new PageHeader(request.source, assistant, main);
         main.appendChild(pageHeader.header);
         pageHeader.body.setAttribute("data-selector", "body");
