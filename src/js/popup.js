@@ -3,18 +3,24 @@ import defaultElements from "./default-elements";
 import "../img/icon-34.png";
 import "../img/icon-128.png";
 import StringToDOM from "./string-to-dom";
-import PageHeader from "./templates/page-model";
+import Vue from "vue/dist/vue.esm";
+import ExtensionFooter from "./components/extension-footer";
 
 let main;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
         let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
-        let pageHeader = new PageHeader(request.source, assistant, main);
-        main.appendChild(pageHeader.header);
-        pageHeader.body.setAttribute("data-selector", "body");
-        main.appendChild(pageHeader.body);
-        pageHeader.updateTab("overview");
+        let vm = new Vue({
+            el: "[data-selector='app']",
+            data: {
+                message: "Mensagem"
+            },
+            components: {
+                "extension-footer": ExtensionFooter
+            }
+        });
+
    }
 });
 
