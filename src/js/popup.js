@@ -5,6 +5,7 @@ import "../img/icon-128.png";
 import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
 import ExtensionFooter from "./components/extension-footer";
+import Header from "./components/Header.vue";
 
 let main;
 

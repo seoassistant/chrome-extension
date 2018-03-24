@@ -43,6 +43,14 @@ var options = {
                 test: /\.html$/,
                 loader: "html-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    js: 'babel-loader!eslint-loader',
+                    sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                }
             }
         ]
     },
