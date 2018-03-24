@@ -4,21 +4,40 @@ import "../img/icon-34.png";
 import "../img/icon-128.png";
 import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
-import ExtensionFooter from "./components/extension-footer";
-import Header from "./components/Header.vue";
+import VueRouter from "vue-router/dist/vue-router.esm";
+import ExtensionFooter from "./components/ExtensionFooter.vue";
+import ExtensionHeader from "./components/ExtensionHeader.vue";
 
 let main;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
-        let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
-        let vm = new Vue({
+        //let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
+        Vue.use(VueRouter);
+
+        const Resumo = { template: "<div>Resumo</div>"};
+        const Sucesso = { template: "<div>Sucesso</div>"};
+        const Erros = { template: "<div>Erros</div>"};
+        const Alertas = { template: "<div> Alertas </div>"};
+        const routes = [
+            { path: "/resumo", component: Resumo},
+            { path: "/sucesso", component: Sucesso},
+            { path: "/erros", component: Erros},
+            { path: "/alertas", component: Alertas},
+            { path: '*', redirect: '/resumo'}
+        ];
+
+        const router = new VueRouter({routes});
+
+        new Vue({
             el: "[data-selector='app']",
             data: {
                 message: "Mensagem"
             },
+            router,
             components: {
-                "extension-footer": ExtensionFooter
+                "extension-footer": ExtensionFooter,
+                "extension-header": ExtensionHeader
             }
         });
 
