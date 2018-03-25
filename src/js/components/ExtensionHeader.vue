@@ -42,7 +42,7 @@
                         <router-link active-class="is-active" to="/overview" tag="li"><a>Resumo</a></router-link>
                         <router-link active-class="is-active" to="/passed" tag="li"><a>Sucesso({{report.passed.length}})</a></router-link>
                         <router-link active-class="is-active" to="/errors" tag="li"><a>Erros({{report.failed_errors.length}})</a></router-link>
-                        <router-link active-class="is-active" to="/warnings" tag="li"><a>Alertas({{report.failed_warnings.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/warnings" tag="li"><a>Alertas({{report.tests.passed_by.warning.length}})</a></router-link>
                     </ul>
                 </div>
             </nav>

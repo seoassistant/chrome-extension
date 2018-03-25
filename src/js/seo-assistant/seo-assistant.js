@@ -12,6 +12,11 @@ class SEOAssistant {
         let priorities = ["error", "warning", "success"];
         let status = priorities[priorities.length - 1];
         let data = {
+            tests: {
+                passed_by: {
+                    warning: []
+                }
+            },
             passed: [],
             passed_by: {
                 error: [],
@@ -54,7 +59,7 @@ class SEOAssistant {
                     if(test.level === "error") {
                         data.passed_by.error.push(result);
                     } else if(test.level === "warning") {
-                        data.passed_by.warning.push(result);
+                        data.tests.passed_by.warning.push(result);
                     }
                 } else {
                     data.failed.push(test);
@@ -75,12 +80,12 @@ class SEOAssistant {
             error: {
                 weight: score_weights.error,
                 total: data.failed_by.error.length + data.passed_by.error.length,
-                partial: data.passed_by.warning.length
+                partial: data.tests.passed_by.warning.length
             },
             warning: {
                 weight: score_weights.warning,
-                total: data.failed_by.warning.length + data.passed_by.warning.length,
-                partial: data.passed_by.warning.length
+                total: data.failed_by.warning.length + data.tests.passed_by.warning.length,
+                partial: data.tests.passed_by.warning.length
             }
         };
 
@@ -97,6 +102,10 @@ class SEOAssistant {
 
     get failed_errors() {
         return this._data.failed_by.error;
+    }
+
+    get tests () {
+        return this._data.tests;
     }
 
     get failed_warnings() {
