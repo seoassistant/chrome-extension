@@ -39,10 +39,10 @@
             <nav class="tabs is-boxed is-fullwidth">
                 <div class="container">
                     <ul>
-                        <router-link active-class="is-active" to="/resumo" tag="li"><a>Resumo</a></router-link>
-                        <router-link active-class="is-active" to="/sucesso" tag="li"><a>Sucesso({{report.passed.length}})</a></router-link>
-                        <router-link active-class="is-active" to="/erros" tag="li"><a>Erros({{report.failed_errors.length}})</a></router-link>
-                        <router-link active-class="is-active" to="/alertas" tag="li"><a>Alertas({{report.failed_warnings.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/overview" tag="li"><a>Resumo</a></router-link>
+                        <router-link active-class="is-active" to="/passed" tag="li"><a>Sucesso({{report.passed.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/errors" tag="li"><a>Erros({{report.failed_errors.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/warnings" tag="li"><a>Alertas({{report.failed_warnings.length}})</a></router-link>
                     </ul>
                 </div>
             </nav>

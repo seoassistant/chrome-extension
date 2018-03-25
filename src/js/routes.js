@@ -4,11 +4,11 @@ import Warning from "./pages/Warning.vue";
 import Errors from "./pages/Errors.vue";
 
 const routes = [
-    { path: "/resumo", component: Overview},
-    { path: "/sucesso", component: Passed},
-    { path: "/erros", component: Errors},
-    { path: "/alertas", component: Warning},
-    { path: '*', redirect: '/resumo'}
+    { path: "/overview", component: Overview},
+    { path: "/passed", component: Passed},
+    { path: "/errors", component: Errors},
+    { path: "/warnings", component: Warning},
+    { path: '*', redirect: '/overview'}
 ];
 
 export default routes;
