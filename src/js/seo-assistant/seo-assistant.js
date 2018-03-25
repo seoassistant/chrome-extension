@@ -89,6 +89,10 @@ class SEOAssistant {
         return this._data.all;
     }
 
+    get passed () {
+        return this._data.passed;
+    }
+
     get failed_errors() {
         return this._data.failed_by.error;
     }

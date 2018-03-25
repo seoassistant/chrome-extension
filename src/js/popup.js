@@ -6,13 +6,25 @@ import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
 import VueRouter from "vue-router/dist/vue-router.esm";
 import App from "./App.vue";
+import Vuex from 'vuex/dist/vuex.esm'
 
 let main;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
-        let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
+        let report = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
+        let page = { title: request.source.title, url: request.source.url };
+        console.log(report);
         Vue.use(VueRouter);
+        Vue.use(Vuex);
+
+        const store = new Vuex.Store({
+            state: {
+                report,
+                page
+            },
+            mutations: {}
+        });
 
         const Resumo = { template: "<div>Resumo</div>"};
         const Sucesso = { template: "<div>Sucesso</div>"};
@@ -34,6 +46,7 @@ chrome.runtime.onMessage.addListener(function(request) {
                 message: "Mensagem"
             },
             router,
+            store,
             components: {
                 "app": App
             }
