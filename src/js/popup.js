@@ -6,6 +6,9 @@ import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
 import VueRouter from "vue-router/dist/vue-router.esm";
 import Overview from "./components/Overview.vue";
+import Passed from "./components/Passed.vue";
+import Warning from "./components/Warning.vue";
+import Errors from "./components/Errors.vue";
 import App from "./App.vue";
 import Vuex from 'vuex/dist/vuex.esm'
 
@@ -15,7 +18,6 @@ chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
         let report = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
         let page = { title: request.source.title, url: request.source.url };
-        console.log(report);
         Vue.use(VueRouter);
         Vue.use(Vuex);
 
@@ -27,15 +29,11 @@ chrome.runtime.onMessage.addListener(function(request) {
             mutations: {}
         });
 
-        const Resumo = Overview;
-        const Sucesso = { template: "<div>Sucesso</div>"};
-        const Erros = { template: "<div>Erros</div>"};
-        const Alertas = { template: "<div> Alertas </div>"};
         const routes = [
-            { path: "/resumo", component: Resumo},
-            { path: "/sucesso", component: Sucesso},
-            { path: "/erros", component: Erros},
-            { path: "/alertas", component: Alertas},
+            { path: "/resumo", component: Overview},
+            { path: "/sucesso", component: Passed},
+            { path: "/erros", component: Errors},
+            { path: "/alertas", component: Warning},
             { path: '*', redirect: '/resumo'}
         ];
 
