@@ -1,5 +1,4 @@
 <script>
-    import SEOAssistant from "../seo-assistant/seo-assistant";
     let data = {};
 
     export default {

@@ -5,14 +5,13 @@ import "../img/icon-128.png";
 import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
 import VueRouter from "vue-router/dist/vue-router.esm";
-import ExtensionFooter from "./components/ExtensionFooter.vue";
-import ExtensionHeader from "./components/ExtensionHeader.vue";
+import App from "./App.vue";
 
 let main;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
-        //let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
+        let assistant = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
         Vue.use(VueRouter);
 
         const Resumo = { template: "<div>Resumo</div>"};
@@ -36,8 +35,7 @@ chrome.runtime.onMessage.addListener(function(request) {
             },
             router,
             components: {
-                "extension-footer": ExtensionFooter,
-                "extension-header": ExtensionHeader
+                "app": App
             }
         });
 
