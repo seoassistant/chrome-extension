@@ -14,20 +14,17 @@ class SEOAssistant {
         let data = {
             tests: {
                 passed_by: {
+                    warning: [],
+                    error: []
+                },
+                failed_by: {
+                    error: [],
                     warning: []
-                }
-            },
-            passed: [],
-            passed_by: {
-                error: [],
-                warning: []
-            },
-            failed: [],
-            failed_by: {
-                error: [],
-                warning: []
-            },
-            all: []
+                },
+                passed: [],
+                failed: [],
+                all: []
+            }
         };
         let score_weights = {error: 5, warning: 2};
 
@@ -55,36 +52,36 @@ class SEOAssistant {
                 result.tests.push(resultTest);
 
                 if(passed) {
-                    data.passed.push(test);
+                    data.tests.passed.push(test);
                     if(test.level === "error") {
-                        data.passed_by.error.push(result);
+                        data.tests.passed_by.error.push(result);
                     } else if(test.level === "warning") {
                         data.tests.passed_by.warning.push(result);
                     }
                 } else {
-                    data.failed.push(test);
+                    data.tests.failed.push(test);
                     if(test.level === "error") {
-                        data.failed_by.error.push(result);
+                        data.tests.failed_by.error.push(result);
                     } else if(test.level === "warning") {
-                        data.failed_by.warning.push(result);
+                        data.tests.failed_by.warning.push(result);
                     }
                 }
                 if(!passed && priorities.indexOf(test.level) !== priorities.length - 1) {
                     this.status = priorities.indexOf(test.level) < priorities.indexOf(this.status) ? test.level : this.status;
                 }
-                data.all.push(resultTest);
+                data.tests.all.push(resultTest);
             });
         });
 
         let scores = {
             error: {
                 weight: score_weights.error,
-                total: data.failed_by.error.length + data.passed_by.error.length,
+                total: data.tests.failed_by.error.length + data.tests.passed_by.error.length,
                 partial: data.tests.passed_by.warning.length
             },
             warning: {
                 weight: score_weights.warning,
-                total: data.failed_by.warning.length + data.tests.passed_by.warning.length,
+                total: data.tests.failed_by.warning.length + data.tests.passed_by.warning.length,
                 partial: data.tests.passed_by.warning.length
             }
         };
@@ -93,24 +90,17 @@ class SEOAssistant {
     }
 
     get all() {
-        return this._data.all;
+        return this._data.tests.all;
     }
 
     get passed () {
-        return this._data.passed;
-    }
-
-    get failed_errors() {
-        return this._data.failed_by.error;
+        return this._data.tests.passed;
     }
 
     get tests () {
         return this._data.tests;
     }
 
-    get failed_warnings() {
-        return this._data.failed_by.warning;
-    }
 }
 
 export default SEOAssistant;
