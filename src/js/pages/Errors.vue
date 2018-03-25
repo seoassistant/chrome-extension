@@ -1,17 +1,17 @@
 <template>
-    <elements-table :elements="warning"></elements-table>
+    <elements-table :elements="errors"></elements-table>
 </template>
 
 <script>
-    import ElementsTable from "./ElementsTable.vue";
+    import ElementsTable from "../components/ElementsTable.vue";
 
     export default {
         data() {
             return {};
         },
         computed: {
-            warning () {
-                return this.$store.state.report.failed_warnings;
+            errors () {
+                return this.$store.state.report.failed_errors;
             }
         },
         components: {

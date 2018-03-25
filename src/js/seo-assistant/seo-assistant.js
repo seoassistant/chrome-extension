@@ -1,5 +1,5 @@
 import StringToDOM from "../string-to-dom";
-import ScoreCalculator from "../score-calculator/score-calculator";
+import ScoreCalculator from "./score-calculator/score-calculator";
 
 class SEOAssistant {
 

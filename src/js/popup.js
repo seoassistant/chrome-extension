@@ -5,12 +5,9 @@ import "../img/icon-128.png";
 import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
 import VueRouter from "vue-router/dist/vue-router.esm";
-import Overview from "./components/Overview.vue";
-import Passed from "./components/Passed.vue";
-import Warning from "./components/Warning.vue";
-import Errors from "./components/Errors.vue";
-import App from "./App.vue";
 import Vuex from 'vuex/dist/vuex.esm'
+import routes from "./routes";
+import App from "./App.vue";
 
 let main;
 
@@ -29,21 +26,11 @@ chrome.runtime.onMessage.addListener(function(request) {
             mutations: {}
         });
 
-        const routes = [
-            { path: "/resumo", component: Overview},
-            { path: "/sucesso", component: Passed},
-            { path: "/erros", component: Errors},
-            { path: "/alertas", component: Warning},
-            { path: '*', redirect: '/resumo'}
-        ];
-
         const router = new VueRouter({routes});
 
         new Vue({
             el: "[data-selector='app']",
-            data: {
-                message: "Mensagem"
-            },
+            data: {},
             router,
             store,
             components: {

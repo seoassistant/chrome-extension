@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import ElementsTable from "./ElementsTable.vue";
+    import ElementsTable from "../components/ElementsTable.vue";
 
     export default {
         data() {
