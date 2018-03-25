@@ -19,7 +19,9 @@
 <template>
     <div>
         <extension-header></extension-header>
-        <router-view></router-view>
+        <div class="section container">
+            <router-view></router-view>
+        </div>
         <extension-footer></extension-footer>
     </div>
 </template>

@@ -1,7 +1,5 @@
 <script>
-    let data = {
-        teste: "Teles"
-    };
+    let data = {};
 
     export default {
         name: "ExtensionHeader",
@@ -12,6 +10,18 @@
             page () {
                 return this.$store.state.page;
             },
+            url () {
+                return {
+                    short: this.page.url.length <= 35 ? this.page.url : `${this.page.url.substr(0,60)}...`,
+                    long: this.page.url
+                }
+            },
+            title () {
+                return {
+                    short: this.page.title.length <= 35 ? this.page.title : `${this.page.title.substr(0,35)}...`,
+                    long: this.page.title
+                }
+            },
             report () {
                 return this.$store.state.report;
             }
@@ -19,14 +29,11 @@
     }
 </script>
 
-
-<style lang="css"></style>
-
 <template>
     <header class="hero" v-bind:class="{'is-success': report.status === 'success', 'is-warning': report.status === 'warning', 'is-danger': report.status === 'error' }">
         <div class="hero-body">
-            <h1 class="title is-4">{{page.title}}</h1>
-            <h2 class="subtitle is-6">{{page.url}}</h2>
+            <h1 class="title is-4" :title="title.long">{{title.short}}</h1>
+            <h2 class="subtitle is-6" :title="url.long">{{url.short}}</h2>
         </div>
         <div class="hero-foot">
             <nav class="tabs is-boxed is-fullwidth">

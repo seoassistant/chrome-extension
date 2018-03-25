@@ -5,6 +5,7 @@ import "../img/icon-128.png";
 import StringToDOM from "./string-to-dom";
 import Vue from "vue/dist/vue.esm";
 import VueRouter from "vue-router/dist/vue-router.esm";
+import Overview from "./components/Overview.vue";
 import App from "./App.vue";
 import Vuex from 'vuex/dist/vuex.esm'
 
@@ -26,7 +27,7 @@ chrome.runtime.onMessage.addListener(function(request) {
             mutations: {}
         });
 
-        const Resumo = { template: "<div>Resumo</div>"};
+        const Resumo = Overview;
         const Sucesso = { template: "<div>Sucesso</div>"};
         const Erros = { template: "<div>Erros</div>"};
         const Alertas = { template: "<div> Alertas </div>"};

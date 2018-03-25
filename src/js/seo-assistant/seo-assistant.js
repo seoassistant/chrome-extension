@@ -64,12 +64,10 @@ class SEOAssistant {
                         data.failed_by.warning.push(result);
                     }
                 }
-                debugger;
-                debugger;
                 if(!passed && priorities.indexOf(test.level) !== priorities.length - 1) {
                     this.status = priorities.indexOf(test.level) < priorities.indexOf(this.status) ? test.level : this.status;
                 }
-                data.all.push(test);
+                data.all.push(resultTest);
             });
         });
 
