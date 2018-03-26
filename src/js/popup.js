@@ -1,20 +1,45 @@
 import SEOAssistant from "./seo-assistant/seo-assistant";
-import rules from "./popup/rules";
+import defaultElements from "./default-elements";
 import "../img/icon-34.png";
 import "../img/icon-128.png";
-import StringToDOM from "./popup/string-to-dom";
-import PageHeader from "./templates/page-model";
+import StringToDOM from "./string-to-dom";
+import Vue from "vue/dist/vue.esm";
+import VueRouter from "vue-router/dist/vue-router.esm";
+import Vuex from 'vuex/dist/vuex.esm'
+import routes from "./routes";
+import App from "./App.vue";
 
 let main;
 
 chrome.runtime.onMessage.addListener(function(request) {
    if(request.action === "getPageSource"){
-        let assistant = new SEOAssistant(StringToDOM(request.source.dom), rules);
-        let pageHeader = new PageHeader(request.source, assistant, main);
-        main.appendChild(pageHeader.header);
-        pageHeader.body.setAttribute("data-selector", "body");
-        main.appendChild(pageHeader.body);
-        pageHeader.updateTab("overview");
+        let report = new SEOAssistant(StringToDOM(request.source.dom), defaultElements);
+        let page = { title: request.source.title, url: request.source.url };
+        Vue.use(VueRouter);
+        Vue.use(Vuex);
+        debugger;
+        debugger;
+        debugger;
+        const store = new Vuex.Store({
+            state: {
+                report,
+                page
+            },
+            mutations: {}
+        });
+
+        const router = new VueRouter({routes});
+
+        new Vue({
+            el: "[data-selector='app']",
+            data: {},
+            router,
+            store,
+            components: {
+                "app": App
+            }
+        });
+
    }
 });
 

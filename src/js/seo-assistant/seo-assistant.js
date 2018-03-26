@@ -1,120 +1,118 @@
-import StringToDOM from "../popup/string-to-dom";
-import ScoreCalculator from "../score-calculator/score-calculator";
+import StringToDOM from "../string-to-dom";
+import ScoreCalculator from "./score-calculator/score-calculator";
 
 class SEOAssistant {
 
-    constructor(DOM, rules) {
-        this._page = typeof DOM === "string" ? StringToDOM(DOM) : DOM;
-        this._rules = rules;
-        this._status = "success";
-        this._score = 0;
-        let levels = {
-            error: {
-                weight:5,
-                total: 0,
-                passed:0
+    constructor(DOM, elements) {
+
+        if(typeof DOM === "string") {
+            DOM = StringToDOM(DOM);
+        }
+
+        let priorities = ["error", "warning", "success"];
+        let status = priorities[priorities.length - 1];
+        let data = {
+            elements: {
+                passed_by: {
+                    warning: [],
+                    error: []
+                },
+                failed_by: {
+                    error: [],
+                    warning: []
+                },
+                passed: []
             },
-            warning: {
-                weight:2,
-                total: 0,
-                passed:0
+            tests: {
+                failed_by: {
+                    error: [],
+                    warning: []
+                },
+                passed_by: {
+                    error: [],
+                    warning: []
+                },
+                passed: [],
+                failed: [],
+                all: []
             }
         };
+        let score_weights = {error: 5, warning: 2};
 
-        this._results = {
-            list: [],
-            testsList: [],
-            byName: {},
-            byTestDescription: {},
-            groupedByTestLevel: {
-                error: [],
-                warning: []
-            }
-        };
+        this.score = 0;
+        this._data = data;
+        this.status = status;
 
-        let statusPriorities = ["error", "warning", "success"];
-
-        this._rules.forEach(rule => {
-            let extracted = rule.extract(this._page);
-            this._results.list.push(Object.assign(rule, {extracted}));
-            this._results.byName[rule.name] = {
-                extracted
+        elements.forEach(element => {
+            let result = {name: element.name };
+            let content = element.extract(DOM);
+            result.extracted = {
+                content,
+                is_empty: content.length === 0,
+                is_unique: content.length === 1
             };
+            result.tests = [];
 
-            this._results.byName[rule.name].tests = rule.tests;
-
-            rule.tests.forEach(test => {
-                let passed = test.expect(extracted);
-                let name = rule.name;
-                let result = {
-                    extracted,
-                    passed,
-                    name
-                };
-
-                if(passed) levels[test.level].passed++;
-                levels[test.level].total++;
-
-                let isNewStatusLevelHigher = statusPriorities.indexOf(test.level) !== -1 && statusPriorities.indexOf(test.level) < statusPriorities.indexOf(this._status);
-                if(!passed && isNewStatusLevelHigher){
-                    this._status = test.level;
-                }
-
-                this._results.byTestDescription[test.description] = result;
-                this._results.testsList.push({
+            element.tests.forEach(test => {
+                let passed = test.expect(result.extracted.content);
+                let resultTest = {
                     description: test.description,
-                    passed: passed,
-                    extracted: extracted,
-                    level: test.level
-                });
-                this._results.byTestDescription[test.description].tests = rule.tests;
-                this._results.groupedByTestLevel[test.level].push(result);
+                    level: test.level,
+                    passed
+                };
+                result.tests.push(resultTest);
+
+                if(passed) {
+                    data.tests.passed.push(test);
+                    data.elements.passed.push(result);
+                    if(test.level === "error") {
+                        data.tests.passed_by.error.push(test);
+                        data.elements.passed_by.error.push(result);
+                    } else if(test.level === "warning") {
+                        data.tests.passed_by.warning.push(test);
+                        data.elements.passed_by.warning.push(result);
+                    }
+                } else {
+                    data.tests.failed.push(test);
+                    if(test.level === "error") {
+                        data.tests.failed_by.error.push(test);
+                        data.elements.failed_by.error.push(result);
+                    } else if(test.level === "warning") {
+                        data.tests.failed_by.warning.push(test);
+                        data.elements.failed_by.warning.push(result);
+                    }
+                }
+                if(!passed && priorities.indexOf(test.level) !== priorities.length - 1) {
+                    this.status = priorities.indexOf(test.level) < priorities.indexOf(this.status) ? test.level : this.status;
+                }
+                data.tests.all.push(resultTest);
             });
         });
 
-        let levelsToScore = (level) => {
-            return {
-                weight: level.weight,
-                total: level.total,
-                partial: level.passed
+        let scores = {
+            error: {
+                weight: score_weights.error,
+                total: data.elements.failed_by.error.length + data.elements.passed_by.error.length,
+                partial: data.elements.passed_by.warning.length
+            },
+            warning: {
+                weight: score_weights.warning,
+                total: data.elements.failed_by.warning.length + data.elements.passed_by.warning.length,
+                partial: data.elements.passed_by.warning.length
             }
         };
 
-        let calculator = new ScoreCalculator(Object.values(levels), levelsToScore);
-        this._score = calculator.score;
+        this.score = new ScoreCalculator(Object.values(scores)).score;
     }
 
-    get rules() {
-        return this._rules;
+    get tests () {
+        return this._data.tests;
     }
 
-    get results() {
-        return this._results.list;
+    get elements () {
+        return this._data.elements;
     }
 
-    get status() {
-        return this._status;
-    }
-
-    get tests() {
-        return this._results.testsList;
-    }
-
-    get score() {
-        return this._score;
-    }
-
-    get errorsNotPassed () {
-        return this._results.groupedByTestLevel.error.filter(error => !error.passed);
-    }
-
-    get warningsNotPassed () {
-        return this._results.groupedByTestLevel.warning.filter(warning => !warning.passed);
-    }
-
-    get allPassed () {
-        return [...this._results.groupedByTestLevel.warning.filter(warning => warning.passed), ...this._results.groupedByTestLevel.error.filter(error => error.passed)];
-    }
 }
 
 export default SEOAssistant;

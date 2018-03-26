@@ -1,4 +1,4 @@
-const rules = [{
+const defaultElements = [{
     extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("title") || [], title => title.innerText),
     name: "Page Title",
     specs: [{
@@ -7,4 +7,4 @@ const rules = [{
         level: "error"
     }]
 }];
-export default rules;
+export default defaultElements;
