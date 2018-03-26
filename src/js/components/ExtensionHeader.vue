@@ -40,9 +40,9 @@
                 <div class="container">
                     <ul>
                         <router-link active-class="is-active" to="/overview" tag="li"><a>Resumo</a></router-link>
-                        <router-link active-class="is-active" to="/passed" tag="li"><a>Sucesso({{report.passed.length}})</a></router-link>
-                        <router-link active-class="is-active" to="/errors" tag="li"><a>Erros({{report.tests.failed_by.error.length}})</a></router-link>
-                        <router-link active-class="is-active" to="/warnings" tag="li"><a>Alertas({{report.tests.passed_by.warning.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/passed" tag="li"><a>Sucesso({{report.tests.passed.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/errors" tag="li"><a>Erros({{report.els.failed_by.error.length}})</a></router-link>
+                        <router-link active-class="is-active" to="/warnings" tag="li"><a>Alertas({{report.els.passed_by.warning.length}})</a></router-link>
                     </ul>
                 </div>
             </nav>

@@ -11,7 +11,7 @@
         },
         computed: {
             errors () {
-                return this.$store.state.report.tests.failed_by.error;
+                return this.$store.state.report.els.failed_by.error;
             }
         },
         components: {

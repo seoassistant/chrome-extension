@@ -11,7 +11,7 @@
         },
         computed: {
             passed () {
-                return this.$store.state.report.passed;
+                return this.$store.state.report.tests.passed;
             }
         },
         components: {

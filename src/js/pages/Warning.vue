@@ -11,7 +11,7 @@
         },
         computed: {
             warning () {
-                return this.$store.state.report.tests.failed_by._warning;
+                return this.$store.state.report.els.failed_by.warning;
             }
         },
         components: {

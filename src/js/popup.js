@@ -17,7 +17,9 @@ chrome.runtime.onMessage.addListener(function(request) {
         let page = { title: request.source.title, url: request.source.url };
         Vue.use(VueRouter);
         Vue.use(Vuex);
-
+        debugger;
+        debugger;
+        debugger;
         const store = new Vuex.Store({
             state: {
                 report,
