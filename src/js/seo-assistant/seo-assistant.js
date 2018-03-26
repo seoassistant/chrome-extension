@@ -20,7 +20,8 @@ class SEOAssistant {
                 failed_by: {
                     error: [],
                     warning: []
-                }
+                },
+                passed: []
             },
             tests: {
                 passed: [],
@@ -55,6 +56,7 @@ class SEOAssistant {
 
                 if(passed) {
                     data.tests.passed.push(test);
+                    data.elements.passed.push(result);
                     if(test.level === "error") {
                         data.elements.passed_by.error.push(result);
                     } else if(test.level === "warning") {

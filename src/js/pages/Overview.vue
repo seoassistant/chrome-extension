@@ -7,6 +7,7 @@
 <script>
     import Recommendations from "../components/Recommendations.vue";
     import ResultsPanel from "../components/ResultsPanel.vue";
+
     export default {
         components: {
             "recommendations": Recommendations,
