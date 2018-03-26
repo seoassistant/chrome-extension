@@ -1,17 +1,19 @@
 <template>
     <div>
         <h2 class="title is-2"
-        v-bind:class="{'has-text-danger': status === 'error', 'has-text-warning': status === 'warning', 'has-text-success': status === 'success' }">{{score}}/100
+        v-bind:class="{'has-text-danger': status === 'error', 'has-text-warning': status === 'warning', 'has-text-success': status === 'success' }">
+            {{ title }}
         </h2>
         <h3 class="subtitle is-6">
             <span class="has-text-weight-semibold">{{subtitle.short}}</span>
-            <span>&nbsp;{{subtitle.long}}</span>
+            <span>{{subtitle.long}}</span>
         </h3>
         <br>
     </div>
 </template>
 <script>
     export default {
+        props: ["title"],
         computed: {
             score () {
                 return this.$store.state.report.score;

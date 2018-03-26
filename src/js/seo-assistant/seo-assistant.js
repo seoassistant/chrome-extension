@@ -24,6 +24,14 @@ class SEOAssistant {
                 passed: []
             },
             tests: {
+                failed_by: {
+                    error: [],
+                    warning: []
+                },
+                passed_by: {
+                    error: [],
+                    warning: []
+                },
                 passed: [],
                 failed: [],
                 all: []
@@ -58,15 +66,19 @@ class SEOAssistant {
                     data.tests.passed.push(test);
                     data.elements.passed.push(result);
                     if(test.level === "error") {
+                        data.tests.passed_by.error.push(test);
                         data.elements.passed_by.error.push(result);
                     } else if(test.level === "warning") {
+                        data.tests.passed_by.warning.push(test);
                         data.elements.passed_by.warning.push(result);
                     }
                 } else {
                     data.tests.failed.push(test);
                     if(test.level === "error") {
+                        data.tests.failed_by.error.push(test);
                         data.elements.failed_by.error.push(result);
                     } else if(test.level === "warning") {
+                        data.tests.failed_by.warning.push(test);
                         data.elements.failed_by.warning.push(result);
                     }
                 }
@@ -91,10 +103,6 @@ class SEOAssistant {
         };
 
         this.score = new ScoreCalculator(Object.values(scores)).score;
-    }
-
-    get all() {
-        return this._data.tests.all;
     }
 
     get tests () {

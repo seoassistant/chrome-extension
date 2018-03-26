@@ -1,17 +1,22 @@
 <template>
     <div>
-        <results-panel></results-panel>
+        <score-panel :title="title"></score-panel>
         <recommendations></recommendations>
     </div>
 </template>
 <script>
     import Recommendations from "../components/Recommendations.vue";
-    import ResultsPanel from "../components/ResultsPanel.vue";
+    import ScorePanel from "../components/ScorePanel.vue";
 
     export default {
+        computed: {
+            title () {
+                return `${ this.$store.state.report.score }/100`
+            }
+        },
         components: {
             "recommendations": Recommendations,
-            "results-panel": ResultsPanel
+            "score-panel": ScorePanel
         }
     }
 </script>

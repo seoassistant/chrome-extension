@@ -2,7 +2,7 @@
     export default {
         computed: {
             recommendations () {
-                return this.$store.state.report.all;
+                return this.$store.state.report.tests.all;
             }
         }
     }
