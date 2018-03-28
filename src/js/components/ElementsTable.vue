@@ -2,6 +2,7 @@
 
     .fixed-table
         table-layout: fixed
+        word-break: break-all
 
         .fixed-table__short-cell
             width: 30%
