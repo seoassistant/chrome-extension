@@ -1,14 +1,23 @@
+<style lang="sass">
+
+    .fixed-table
+        table-layout: fixed
+
+        .fixed-table__short-cell
+            width: 30%
+</style>
+
 <template>
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" v-if="elements.length > 0">
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth fixed-table" v-if="elements.length > 0">
         <thead>
         <tr class="has-text-weight-semibold">
-            <td> Elemento</td>
+            <td class="fixed-table__short-cell"> Elemento</td>
             <td> Valor </td>
         </tr>
         </thead>
         <tbody>
         <tr v-for="element in elements">
-            <td>{{element.name}}</td>
+            <td class="fixed-table__short-cell">{{element.name}}</td>
             <td>
                 <span v-if="element.extracted.content.length === 0" class="tag is-light">Vazio</span>
                 <span v-else-if="element.extracted.content.length === 1">{{ element.extracted.content[0] }}</span>
