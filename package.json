@@ -52,6 +52,7 @@
     "vue": "2.5.16",
     "vue-router": "3.0.1",
     "vuex": "3.0.1",
+    "vue-template-compiler":"2.5.16",
     "xmldom": "0.1.27"
   }
 }
