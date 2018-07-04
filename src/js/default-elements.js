@@ -23,7 +23,7 @@ const rules = [
         name: "H1",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h1"), h1 => h1.innerText),
         tests: [{
-            description: "Deve existir apenas um &lt;h1&gt; por página.",
+            description: "Deve existir apenas um <h1> por página.",
             expect: (results) => results.length === 1,
             level: "error"
         }]
@@ -31,7 +31,7 @@ const rules = [
         name: "Lista de H2",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h2"), h2 => h2.innerText),
         tests: [{
-            description: "É boa prática ter ao menos um &lt;h2&gt;",
+            description: "É boa prática ter ao menos um <h2>",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
@@ -39,7 +39,7 @@ const rules = [
         name: "Lista de H3",
         extract: (dom) => Array.prototype.map.call(dom.querySelectorAll("h3"), h3 => h3.innerText),
         tests: [{
-            description: "É boa prática ter ao menos um &lt;h3&gt;",
+            description: "É boa prática ter ao menos um <h3>",
             expect: (results) => results.length > 0,
             level: "warning"
         }]
